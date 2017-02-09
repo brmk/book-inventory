@@ -1,0 +1,14 @@
+<template name="home">
+	{{#if currentUser}}
+		Logged in as: {{currentUser.username}} ({{currentUser.emails.[0].address}}) 
+		<br>
+		<a href="{{pathFor 'logout'}}">Log out</a>
+	{{/if}}
+	<div>
+		{{> loginButtons}}
+		<!-- <a href="{{pathFor 'sign-up'}}" class="">Sign up</a>
+		<a href="{{pathFor 'sign-in'}}" class="">Sign in</a> -->
+	</div>
+
+
+</template>
