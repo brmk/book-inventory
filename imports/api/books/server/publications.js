@@ -17,3 +17,12 @@ Meteor.publish('books.ownedByUser', function (query, options={}) {
 
 	return Books.find(query, options);
 });
+
+Meteor.publish('books.details', function (_id) {
+	const createdBy = this.userId;
+	const query = {
+		_id,
+		createdBy
+	}
+	return Books.find(query);
+});

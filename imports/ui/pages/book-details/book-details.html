@@ -1,4 +1,22 @@
 <template name="Books_details">
-	A book will have the following info: name, author, ISBN, date published, date added, cover
-	image url.
+	<!-- A book will have the following info: name, author, ISBN, date published, date added, cover -->
+	<a class="btn btn-default" action="view-book">View</a>
+	<a class="btn btn-default" action="edit-book">Edit</a>
+	<a class="btn btn-danger" action="remove-book">Remove</a>
+	<div>
+		{{#with book}}
+			{{name}}
+			<br>
+			{{author}}
+			<br>
+			{{ISBN}}
+			<br>
+			{{publishedAt}}
+			<br>
+			{{createdAt}}
+			<br>
+			<img src="{{image}}">
+			<br>
+		{{/with}}
+	</div>
 </template>
