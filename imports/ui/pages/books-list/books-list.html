@@ -1,0 +1,9 @@
+<template name="Books_list">
+	<div class="books-list row">
+		{{#each books}}
+			<div class="col-sm-3">
+				{{> Books_listItem}}
+			</div>
+		{{/each}}
+	</div>
+</template>

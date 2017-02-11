@@ -9,6 +9,8 @@ import {
 } from 'meteor/kadira:blaze-layout';
 
 import '/imports/ui/layouts/body/body.js';
+import '/imports/ui/pages/book-details/book-details.js';
+import '/imports/ui/pages/books-list/books-list.js';
 
 
 const booksRoutes = FlowRouter.group({
@@ -21,13 +23,13 @@ const booksRoutes = FlowRouter.group({
 booksRoutes.route('/books', {
     name : 'books.list',
     action: function() {
-        // BlazeLayout.render('App_body', { main: 'home' });
+        BlazeLayout.render('App_body', { main: 'Books_list' });
     },
 });
 
 booksRoutes.route('/books/:id', {
-    name : 'books.detail',
+    name : 'books.details',
     action: function() {
-        // BlazeLayout.render('App_body', { main: 'home' });
+        BlazeLayout.render('App_body', { main: 'Books_details' });
     },
 });

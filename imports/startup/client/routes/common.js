@@ -14,7 +14,15 @@ FlowRouter.notFound = {
 FlowRouter.route('/', {
     name: 'home',
     action() {
-    	BlazeLayout.render('App_body', { main: 'home' });
+    	// BlazeLayout.render('App_body', { main: 'home' });
+        FlowRouter.redirect(FlowRouter.path('books.list'));
     },
 });
 
+FlowRouter.route('/logout', {
+    name : 'logout',
+    action: function() {
+        Meteor.logout();
+        FlowRouter.go('home');
+    },
+});

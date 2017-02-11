@@ -1,0 +1,11 @@
+<!-- The book list will show book name, book author and date published -->
+<template name="Books_listItem">
+	<div class="book-list-item" href="{{pathFor 'book.details' id=_id}}">
+		{{name}}
+		<br>
+		{{author}}
+		<br>
+		{{publishedAt}}
+		<br>
+	</div>
+</template>
