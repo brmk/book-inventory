@@ -85,6 +85,7 @@ templating@1.2.15
 templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
+theduke:bootstrap-modal-prompt@0.0.2
 tracker@1.1.1
 twbs:bootstrap@3.3.6
 ui@1.0.12
