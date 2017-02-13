@@ -1,7 +1,7 @@
 <template name="Books_list">
 	<div class="container">
 		<div class="control-group">
-			<a class="btn btn-default" action="add-book">Add book</a>
+			<a class="btn btn-default" href="{{pathFor 'books.add'}}">Add book</a>
 		</div>
 		<br>
 		<div class="books-list row">
@@ -11,9 +11,17 @@
 						{{> Books_listItem}}
 					</div>
 				{{/each}}
+				{{#if hasMore}}
+					<div class="col-xs-12">
+						<div class="text-center">
+							<a class="btn btn-default" action="load-more">Load more</a>
+						</div>
+					</div>
+				{{/if}}
 			{{else}}
 				{{> spinner}}
 			{{/if}}
+
 		</div>
 	</div>
 </template>

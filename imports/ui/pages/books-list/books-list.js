@@ -10,21 +10,32 @@ const DEFAULT_BOOKS_LIMIT = 10,
 Template.Books_list.onCreated(function(){
 	this.limit = new ReactiveVar(DEFAULT_BOOKS_LIMIT);
 	this.autorun(()=>{
-		const limit = this.limit.get();
+		const limit = this.limit.get() + 1;
+		let scrollTop = $('body').scrollTop();
 
 		this.subscribe('books.ownedByUser', {}, {limit});
+		Tracker.afterFlush(()=>{
+			Meteor.setTimeout(()=>{
+				$('body').scrollTop(scrollTop);
+			}, 300)
+		});
 	});
 });
 
 Template.Books_list.helpers({
 	books() {
-		console.log(Books.find().fetch())
-		return Books.find({}).fetch();
+		const limit = Template.instance().limit.get();		
+		// console.log(Books.find().fetch())
+		return Books.find({}, {limit}).fetch();
+	},
+	hasMore() {
+		const limit = Template.instance().limit.get();
+		return Books.find().count() !== Books.find({},{limit}).count();
 	}
 });
 
 Template.Books_list.events({
-	'click [action=load-more-books]'(event,instance) {
+	'click [action=load-more]'(event,instance) {
 		instance.limit.set(instance.limit.get() + BOOKS_INCREMENT_STEP);
 	}
 });

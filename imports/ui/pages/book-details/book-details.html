@@ -5,7 +5,9 @@
 			{{#if state 'view'}}
 				<a class="btn btn-default" action="set-state" data-state="edit">Edit</a>
 			{{/if}}
-			<a class="btn btn-danger" action="remove-book">Remove</a>
+			{{#if book._id}}
+				<a class="btn btn-danger" action="remove-book">Remove</a>
+			{{/if}}
 		</div>
 		<br>
 		<div class="row">
