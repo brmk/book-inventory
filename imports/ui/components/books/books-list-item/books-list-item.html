@@ -1,11 +1,15 @@
 <!-- The book list will show book name, book author and date published -->
 <template name="Books_listItem">
-	<a class="book-list-item" href="{{pathFor 'books.details' id=_id}}">
-		{{name}}
-		<br>
-		{{author}}
-		<br>
-		{{publishedAt}}
-		<br>
-	</a>
+	<div class="card books-list-item">
+		<div class="card-img-top">
+			<div class="card-img" style="background-image:url({{image}});"></div>
+		</div>
+		<div class="card-block">
+			<h4 class="card-title">{{name}}</h4>
+			<p class="card-text">{{author}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">{{publishedAt}}</small>
+		</div>
+	</div>
 </template>
