@@ -7,7 +7,7 @@ import { Books } from '../books.js';
 Meteor.methods({
     'books.insert' (formData) {
     	if(!Meteor.userId()){
-    		throw new Meteor.error(500, 'You must be logged in');
+    		throw new Meteor.Error(500, 'You must be logged in');
     	}
 
     	const extraFields = {
@@ -23,18 +23,24 @@ Meteor.methods({
     	const book = Books.findOne(bookId);
 
     	if(!book) {
-    		throw new Meteor.error(404, 'Book not found');
+    		throw new Meteor.Error(404, 'Book not found');
     	}
 
         if(book.createdBy !== Meteor.userId()){
-    		throw new Meteor.error(500, 'You must be owner of the book');
+    		throw new Meteor.Error(500, 'You must be owner of the book');
     	}
 
         return Books.remove(bookId);
     },
     'books.update' (bookId, formData) {
+        const book = Books.findOne(bookId);
+
+        if(!book) {
+            throw new Meteor.Error(404, 'Book not found');
+        }
+        
 	    if(book.createdBy !== Meteor.userId()){
-			throw new Meteor.error(500, 'You must be owner of the book');
+			throw new Meteor.Error(500, 'You must be owner of the book');
 		}
 
         return Books.update(bookId, {$set:formData});

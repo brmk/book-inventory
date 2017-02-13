@@ -31,3 +31,5 @@ stylus
 ian:accounts-ui-bootstrap-3
 momentjs:moment
 theduke:bootstrap-modal-prompt
+rajit:bootstrap3-datepicker
+sacha:spin

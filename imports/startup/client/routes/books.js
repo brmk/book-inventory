@@ -27,6 +27,13 @@ booksRoutes.route('/books', {
     },
 });
 
+booksRoutes.route('/books/add', {
+    name : 'books.add',
+    action: function() {
+        BlazeLayout.render('App_body', { main: 'Books_details' });
+    },
+});
+
 booksRoutes.route('/books/:id', {
     name : 'books.details',
     action: function() {

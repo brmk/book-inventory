@@ -5,11 +5,15 @@
 		</div>
 		<br>
 		<div class="books-list row">
-			{{#each books}}
-				<div class="col-sm-4 col-md-3">
-					{{> Books_listItem}}
-				</div>
-			{{/each}}
+			{{#if Template.subscriptionsReady}}
+				{{#each books}}
+					<div class="col-sm-4 col-md-3">
+						{{> Books_listItem}}
+					</div>
+				{{/each}}
+			{{else}}
+				{{> spinner}}
+			{{/if}}
 		</div>
 	</div>
 </template>

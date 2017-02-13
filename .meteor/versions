@@ -65,6 +65,7 @@ npm-mongo@2.2.11_2
 observe-sequence@1.0.14
 ordered-dict@1.0.9
 promise@0.8.8
+rajit:bootstrap3-datepicker@1.6.4
 random@1.0.10
 rate-limit@1.0.6
 reactive-dict@1.1.8
@@ -72,6 +73,7 @@ reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
+sacha:spin@2.3.1
 service-configuration@1.0.11
 session@1.1.7
 sha@1.0.9
